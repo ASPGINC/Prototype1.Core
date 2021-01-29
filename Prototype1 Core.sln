@@ -1,15 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype1.Foundation", "Prototype1.Foundation\Prototype1.Foundation.csproj", "{FB868075-C8DB-4218-BACD-6B1F1F74ADB1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8C9C8B44-F4B1-446E-9020-8A946971479A} = {8C9C8B44-F4B1-446E-9020-8A946971479A}
+		{529145D5-6CC3-4016-89B5-826563024AF1} = {529145D5-6CC3-4016-89B5-826563024AF1}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype1.Migration", "Prototype1.Migration\Prototype1.Migration.csproj", "{3034DCC2-2BCA-44EA-A7ED-8879095519C5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype1.Security", "Prototype1.Security\Prototype1.Security.csproj", "{8C9C8B44-F4B1-446E-9020-8A946971479A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype1.Services", "Prototype1.Services\Prototype1.Services.csproj", "{D2F08397-BE16-4C83-986F-6236AFCAAC21}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8C9C8B44-F4B1-446E-9020-8A946971479A} = {8C9C8B44-F4B1-446E-9020-8A946971479A}
+		{FB868075-C8DB-4218-BACD-6B1F1F74ADB1} = {FB868075-C8DB-4218-BACD-6B1F1F74ADB1}
+		{529145D5-6CC3-4016-89B5-826563024AF1} = {529145D5-6CC3-4016-89B5-826563024AF1}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype1.FluentNHibernate", "Prototype1.FluentNHibernate\Prototype1.FluentNHibernate.csproj", "{529145D5-6CC3-4016-89B5-826563024AF1}"
 EndProject
