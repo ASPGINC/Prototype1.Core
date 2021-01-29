@@ -1,0 +1,553 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB868075-C8DB-4218-BACD-6B1F1F74ADB1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Prototype1.Foundation</RootNamespace>
+    <AssemblyName>Prototype1.Foundation</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=6.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.6.1.0.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc.4.0.1\lib\net45\Microsoft.Practices.Unity.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.SqlServer.Types.11.0.2\lib\net20\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Caches.SysCache2">
+      <HintPath>..\packages\NHibernate.Caches.SysCache2.4.0.0.4000\lib\net40\NHibernate.Caches.SysCache2.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Prototype1.FluentNHibernate, Version=1.0.0.75, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prototype1.FluentNHibernate.1.0.0.75\lib\net40\Prototype1.FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prototype1.Security, Version=1.0.0.75, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prototype1.Security.1.0.0.75\lib\net451\Prototype1.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.1.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionFilters\FromHeaderAttribute.cs" />
+    <Compile Include="ActionFilters\HttpsRequiredHandler.cs" />
+    <Compile Include="ActionFilters\SetFlushModeOnNonGets.cs" />
+    <Compile Include="ActionFilters\ValidateModelAttribute.cs" />
+    <Compile Include="Compression\BZip2\BZip2.cs" />
+    <Compile Include="Compression\BZip2\BZip2Constants.cs" />
+    <Compile Include="Compression\BZip2\BZip2Exception.cs" />
+    <Compile Include="Compression\BZip2\BZip2InputStream.cs" />
+    <Compile Include="Compression\BZip2\BZip2OutputStream.cs" />
+    <Compile Include="Compression\Checksums\Adler32.cs" />
+    <Compile Include="Compression\Checksums\CRC32.cs" />
+    <Compile Include="Compression\Checksums\IChecksum.cs" />
+    <Compile Include="Compression\Checksums\StrangeCRC.cs" />
+    <Compile Include="Compression\Core\FileSystemScanner.cs" />
+    <Compile Include="Compression\Core\INameTransform.cs" />
+    <Compile Include="Compression\Core\IScanFilter.cs" />
+    <Compile Include="Compression\Core\NameFilter.cs" />
+    <Compile Include="Compression\Core\PathFilter.cs" />
+    <Compile Include="Compression\Core\StreamUtils.cs" />
+    <Compile Include="Compression\Core\WindowsPathUtils.cs" />
+    <Compile Include="Compression\Encryption\PkzipClassic.cs" />
+    <Compile Include="Compression\Encryption\ZipAESStream.cs" />
+    <Compile Include="Compression\Encryption\ZipAESTransform.cs" />
+    <Compile Include="Compression\GZip\GZIPConstants.cs" />
+    <Compile Include="Compression\GZip\GZipException.cs" />
+    <Compile Include="Compression\GZip\GzipInputStream.cs" />
+    <Compile Include="Compression\GZip\GzipOutputStream.cs" />
+    <Compile Include="Compression\Lzw\LzwConstants.cs" />
+    <Compile Include="Compression\Lzw\LzwException.cs" />
+    <Compile Include="Compression\Lzw\LzwInputStream.cs" />
+    <Compile Include="Compression\TarGzDeflater.cs" />
+    <Compile Include="Compression\Tar\InvalidHeaderException.cs" />
+    <Compile Include="Compression\Tar\TarArchive.cs" />
+    <Compile Include="Compression\Tar\TarBuffer.cs" />
+    <Compile Include="Compression\Tar\TarEntry.cs" />
+    <Compile Include="Compression\Tar\TarException.cs" />
+    <Compile Include="Compression\Tar\TarHeader.cs" />
+    <Compile Include="Compression\Tar\TarInputStream.cs" />
+    <Compile Include="Compression\Tar\TarOutputStream.cs" />
+    <Compile Include="Compression\Zip\Compression\Deflater.cs" />
+    <Compile Include="Compression\Zip\Compression\DeflaterConstants.cs" />
+    <Compile Include="Compression\Zip\Compression\DeflaterEngine.cs" />
+    <Compile Include="Compression\Zip\Compression\DeflaterHuffman.cs" />
+    <Compile Include="Compression\Zip\Compression\DeflaterPending.cs" />
+    <Compile Include="Compression\Zip\Compression\Inflater.cs" />
+    <Compile Include="Compression\Zip\Compression\InflaterDynHeader.cs" />
+    <Compile Include="Compression\Zip\Compression\InflaterHuffmanTree.cs" />
+    <Compile Include="Compression\Zip\Compression\PendingBuffer.cs" />
+    <Compile Include="Compression\Zip\Compression\Streams\DeflaterOutputStream.cs" />
+    <Compile Include="Compression\Zip\Compression\Streams\InflaterInputStream.cs" />
+    <Compile Include="Compression\Zip\Compression\Streams\OutputWindow.cs" />
+    <Compile Include="Compression\Zip\Compression\Streams\StreamManipulator.cs" />
+    <Compile Include="Compression\Zip\FastZip.cs" />
+    <Compile Include="Compression\Zip\IEntryFactory.cs" />
+    <Compile Include="Compression\Zip\WindowsNameTransform.cs" />
+    <Compile Include="Compression\Zip\ZipConstants.cs" />
+    <Compile Include="Compression\Zip\ZipEntry.cs" />
+    <Compile Include="Compression\Zip\ZipEntryFactory.cs" />
+    <Compile Include="Compression\Zip\ZipException.cs" />
+    <Compile Include="Compression\Zip\ZipExtraData.cs" />
+    <Compile Include="Compression\Zip\ZipFile.cs" />
+    <Compile Include="Compression\Zip\ZipHelperStream.cs" />
+    <Compile Include="Compression\Zip\ZipInputStream.cs" />
+    <Compile Include="Compression\Zip\ZipNameTransform.cs" />
+    <Compile Include="Compression\Zip\ZipOutputStream.cs" />
+    <Compile Include="Data\AuditAttribute.cs" />
+    <Compile Include="Data\CacheManager.cs" />
+    <Compile Include="Data\EncryptedCardNumberCompositeUserType.cs" />
+    <Compile Include="Data\EntityBase.cs" />
+    <Compile Include="Data\EntityRepository.cs" />
+    <Compile Include="Data\EnumStringStorageAttribute.cs" />
+    <Compile Include="Data\Filters\PermanentRecordFilter.cs" />
+    <Compile Include="Data\IGenericRepository.cs" />
+    <Compile Include="Data\IIdentifiable.cs" />
+    <Compile Include="Data\Listener\ApplicationUserCacheListener.cs" />
+    <Compile Include="Data\Listener\AuditListener.cs" />
+    <Compile Include="Data\Listener\AuditLogEntry.cs" />
+    <Compile Include="Data\Listener\AuditLogEntryFactoryBase.cs" />
+    <Compile Include="Data\Listener\DeleteEventListener.cs" />
+    <Compile Include="Data\Listener\EntityBaseAuditLogEntryFactory.cs" />
+    <Compile Include="Data\Listener\FixedDefaultFlushEventListener.cs" />
+    <Compile Include="Data\Listener\IAuditLogEntryFactory.cs" />
+    <Compile Include="Data\Listener\IAuditListener.cs" />
+    <Compile Include="Data\Listener\NullAuditListener.cs" />
+    <Compile Include="Data\Listener\NullAuditLogEntryFactory.cs" />
+    <Compile Include="Data\ListExporter.cs" />
+    <Compile Include="Data\AutomaticMapper\CustomForeignKeyConvention.cs" />
+    <Compile Include="Data\AutomaticMapper\IAutoMaps.cs" />
+    <Compile Include="Data\AutomaticMapper\InterfaceMappingAttribute.cs" />
+    <Compile Include="Data\AutomaticMapper\JoinBuilder.cs" />
+    <Compile Include="Data\AutomaticMapper\JoinContext.cs" />
+    <Compile Include="Data\AutomaticMapper\MagicExtensions.cs" />
+    <Compile Include="Data\AutomaticMapper\AutomaticMapper.cs" />
+    <Compile Include="Data\AutomaticMapper\MappingExtensions.cs" />
+    <Compile Include="Data\AutomaticMapper\SubclassBuilder.cs" />
+    <Compile Include="Data\AutomaticMapper\TableBuilder.cs" />
+    <Compile Include="Data\ManyToManyAttribute.cs" />
+    <Compile Include="Data\IModelBackedEntityBase.cs" />
+    <Compile Include="Data\NHibernate\IEntityRepository.cs" />
+    <Compile Include="Data\NHibernate\IMappingFactory.cs" />
+    <Compile Include="Data\NHibernate\ISessionFactoryFactory.cs" />
+    <Compile Include="Data\NHibernate\ISessionStorage.cs" />
+    <Compile Include="Data\NHibernate\NHibernateLazyUtil.cs" />
+    <Compile Include="Data\NHibernate\NHibernateSessionManager.cs" />
+    <Compile Include="Data\NHibernate\SessionFactoryFactory.cs" />
+    <Compile Include="Data\NHibernate\SessionManager.cs" />
+    <Compile Include="Data\NHibernate\SkipNsXmlTextWriter.cs" />
+    <Compile Include="Data\NHibernate\SqlGeographyUserType.cs" />
+    <Compile Include="Data\NHibernate\XmlData.cs" />
+    <Compile Include="Data\NHibernate\XmlDataType.cs" />
+    <Compile Include="Data\ObjectAsStringUserType.cs" />
+    <Compile Include="Data\OwnershipAttribute.cs" />
+    <Compile Include="Data\RequestLogBase.cs" />
+    <Compile Include="Data\SingleValueArrayConverter.cs" />
+    <Compile Include="Data\StoreAsStringAttribute.cs" />
+    <Compile Include="Data\TrackedEntityUpdate.cs" />
+    <Compile Include="Data\TransientAttribute.cs" />
+    <Compile Include="Data\VersionAttribute.cs" />
+    <Compile Include="Logging\ExceptionContext.cs" />
+    <Compile Include="RazorEngine\Templating\FileSystemDelegateTemplateManager.cs" />
+    <Compile Include="RazorTemplateProvider.cs" />
+    <Compile Include="EnumHelper.cs" />
+    <Compile Include="Events\EntityDeletedEvent.cs" />
+    <Compile Include="Events\EntitySavedEvent.cs" />
+    <Compile Include="Events\EventManager.cs" />
+    <Compile Include="Events\IDomainEvent.cs" />
+    <Compile Include="Events\IEventInterceptor.cs" />
+    <Compile Include="Events\IHandles.cs" />
+    <Compile Include="Events\UserLoggedInEvent.cs" />
+    <Compile Include="Events\UserLoggedOutEvent.cs" />
+    <Compile Include="ExtensionMethodsGeneral.cs" />
+    <Compile Include="Factory.cs" />
+    <Compile Include="Interfaces\IFormsAuthenticationService.cs" />
+    <Compile Include="Interfaces\IGeolocatable.cs" />
+    <Compile Include="Interfaces\IMailService.cs" />
+    <Compile Include="Interfaces\IPermanentRecord.cs" />
+    <Compile Include="Interfaces\IVersioned.cs" />
+    <Compile Include="Logging\IExceptionLogger.cs" />
+    <Compile Include="Models\account_base.cs" />
+    <Compile Include="Models\account_root_base.cs" />
+    <Compile Include="Models\change_password_base.cs" />
+    <Compile Include="Models\external_login_base.cs" />
+    <Compile Include="Models\IEntityBackedModel.cs" />
+    <Compile Include="Models\redirect.cs" />
+    <Compile Include="Models\registration_base.cs" />
+    <Compile Include="Models\registration_external_base.cs" />
+    <Compile Include="Models\reset_password_base.cs" />
+    <Compile Include="ProducerConsumerQueue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\AccountBase.cs" />
+    <Compile Include="Providers\AccountLoginInfoBase.cs" />
+    <Compile Include="Providers\AccountState.cs" />
+    <Compile Include="Providers\ApplicationOAuthProviderBase.cs" />
+    <Compile Include="Providers\IApplicationUser.cs" />
+    <Compile Include="Providers\ApplicationUserStoreBase.cs" />
+    <Compile Include="Providers\ApplicationUserValidatorBase.cs" />
+    <Compile Include="Providers\PasswordHasherBase.cs" />
+    <Compile Include="Providers\ResetPasswordProviderBase.cs" />
+    <Compile Include="RazorEngine\AttributeValue.cs" />
+    <Compile Include="RazorEngine\CodeGenerators\SetModelTypeCodeGenerator.cs" />
+    <Compile Include="RazorEngine\Common\CrossAppDomainObject.cs" />
+    <Compile Include="RazorEngine\Common\GlobalSuppressions.cs" />
+    <Compile Include="RazorEngine\Common\HashCodeCombiner.cs" />
+    <Compile Include="RazorEngine\Compilation\CompilationData.cs" />
+    <Compile Include="RazorEngine\Compilation\CompilerServiceBase.cs" />
+    <Compile Include="RazorEngine\Compilation\CompilerServiceBuilder.cs" />
+    <Compile Include="RazorEngine\Compilation\CompilerServicesUtility.cs" />
+    <Compile Include="RazorEngine\Compilation\CrossAppDomainCleanUp.cs" />
+    <Compile Include="RazorEngine\Compilation\CSharp\CSharpCodeParser.cs" />
+    <Compile Include="RazorEngine\Compilation\CSharp\CSharpDirectCompilerService.cs" />
+    <Compile Include="RazorEngine\Compilation\CSharp\CSharpRazorCodeGenerator.cs" />
+    <Compile Include="RazorEngine\Compilation\CSharp\CSharpRazorCodeLanguage.cs" />
+    <Compile Include="RazorEngine\Compilation\DefaultCompilerServiceFactory.cs" />
+    <Compile Include="RazorEngine\Compilation\DirectCompilerServiceBase.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\ActLikeCaster.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\ActLikeProxy.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\ActLikeProxyAttribute.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\ActLikeProxySerializationHelper.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\AliasAttribute.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\BareBonesList.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\BinderHash.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\BuildProxy.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\Curry.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\EmitExtensions.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\IActLike.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\IActLikeProxy.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\IDynamicKnowLike.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\ImpromptuForwarder.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\ImpromptuForwarderAddRemove.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\ImpromptuLateLibraryType.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\Impromtu.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\ImpromtuObject.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\Invocation.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\InvokeArg.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\InvokeContext.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\InvokeExt.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\InvokeHelper-Regular.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\InvokeHelper.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\InvokeMemberName.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\NonRecursiveInterfaceAttribute.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\ThisFunction.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\TypeHash.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\UseNamedArgumentAttribute.cs" />
+    <Compile Include="RazorEngine\Compilation\DynamicObject\Impromtu\Util.cs" />
+    <Compile Include="RazorEngine\Compilation\HasDynamicModelAttribute.cs" />
+    <Compile Include="RazorEngine\Compilation\ICompilerService.cs" />
+    <Compile Include="RazorEngine\Compilation\ICompilerServiceFactory.cs" />
+    <Compile Include="RazorEngine\Compilation\Inspectors\ICodeInspector.cs" />
+    <Compile Include="RazorEngine\Compilation\RazorDynamicObject.cs" />
+    <Compile Include="RazorEngine\Compilation\RazorEngineHost.cs" />
+    <Compile Include="RazorEngine\Compilation\ReferenceResolver\CompilerReference.cs" />
+    <Compile Include="RazorEngine\Compilation\ReferenceResolver\IReferenceResolver.cs" />
+    <Compile Include="RazorEngine\Compilation\ReferenceResolver\UseCurrentAssembliesReferenceResolver.cs" />
+    <Compile Include="RazorEngine\Compilation\TypeContext.cs" />
+    <Compile Include="RazorEngine\Compilation\VisualBasic\VBCodeParser.cs" />
+    <Compile Include="RazorEngine\Compilation\VisualBasic\VBDirectCompilerService.cs" />
+    <Compile Include="RazorEngine\Compilation\VisualBasic\VBRazorCodeGenerator.cs" />
+    <Compile Include="RazorEngine\Compilation\VisualBasic\VBRazorCodeLanguage.cs" />
+    <Compile Include="RazorEngine\Configuration\Fluent\FluentConfigurationBuilder.cs" />
+    <Compile Include="RazorEngine\Configuration\Fluent\FluentTemplateServiceConfiguration.cs" />
+    <Compile Include="RazorEngine\Configuration\Fluent\IConfigurationBuilder.cs" />
+    <Compile Include="RazorEngine\Configuration\ITemplateServiceConfiguration.cs" />
+    <Compile Include="RazorEngine\Configuration\RazorEngineConfigurationSection.cs" />
+    <Compile Include="RazorEngine\Configuration\TemplateServiceConfiguration.cs" />
+    <Compile Include="RazorEngine\Configuration\Xml\NamespaceConfigurationElement.cs" />
+    <Compile Include="RazorEngine\Configuration\Xml\NamespaceConfigurationElementCollection.cs" />
+    <Compile Include="RazorEngine\Configuration\Xml\TemplateServiceConfigurationElement.cs" />
+    <Compile Include="RazorEngine\Configuration\Xml\TemplateServiceConfigurationElementCollection.cs" />
+    <Compile Include="RazorEngine\Configuration\Xml\XmlTemplateServiceConfiguration.cs" />
+    <Compile Include="RazorEngine\Encoding.cs" />
+    <Compile Include="RazorEngine\Engine.cs" />
+    <Compile Include="RazorEngine\Language.cs" />
+    <Compile Include="RazorEngine\Legacy\Razor.cs" />
+    <Compile Include="RazorEngine\Legacy\Templating\CachedTemplateItem.cs" />
+    <Compile Include="RazorEngine\Legacy\Templating\DelegateTemplateResolver.cs" />
+    <Compile Include="RazorEngine\Legacy\Templating\IsolatedTemplateService.cs" />
+    <Compile Include="RazorEngine\Legacy\Templating\ITemplateResolver.cs" />
+    <Compile Include="RazorEngine\Legacy\Templating\ITemplateService.cs" />
+    <Compile Include="RazorEngine\Legacy\Templating\Parallel\DefaultParallelQueryPlan.cs" />
+    <Compile Include="RazorEngine\Legacy\Templating\Parallel\IParallelQueryPlan.cs" />
+    <Compile Include="RazorEngine\Legacy\Templating\TemplateService.cs" />
+    <Compile Include="RazorEngine\PositionTagged.cs" />
+    <Compile Include="RazorEngine\Templating\BaseTemplateKey.cs" />
+    <Compile Include="RazorEngine\Templating\CompiledTemplate.cs" />
+    <Compile Include="RazorEngine\Templating\DefaultActivator.cs" />
+    <Compile Include="RazorEngine\Templating\DefaultAppDomainFactory.cs" />
+    <Compile Include="RazorEngine\Templating\DefaultCachingProvider.cs" />
+    <Compile Include="RazorEngine\Templating\DelegateActivator.cs" />
+    <Compile Include="RazorEngine\Templating\DelegateAppDomainFactory.cs" />
+    <Compile Include="RazorEngine\Templating\DelegateTemplateManager.cs" />
+    <Compile Include="RazorEngine\Templating\DynamicViewBag.cs" />
+    <Compile Include="RazorEngine\Templating\DynamicWrapperService.cs" />
+    <Compile Include="RazorEngine\Templating\ExecuteContext.cs" />
+    <Compile Include="RazorEngine\Templating\HtmlTemplateBaseOfT.cs" />
+    <Compile Include="RazorEngine\Templating\IActivator.cs" />
+    <Compile Include="RazorEngine\Templating\IAppDomainFactory.cs" />
+    <Compile Include="RazorEngine\Templating\ICachingProvider.cs" />
+    <Compile Include="RazorEngine\Templating\ICompiledTemplate.cs" />
+    <Compile Include="RazorEngine\Templating\IInternalTemplateService.cs" />
+    <Compile Include="RazorEngine\Templating\InstanceContext.cs" />
+    <Compile Include="RazorEngine\Templating\InternalTemplateService.cs" />
+    <Compile Include="RazorEngine\Templating\IRazorEngineCore.cs" />
+    <Compile Include="RazorEngine\Templating\IRazorEngineService.cs" />
+    <Compile Include="RazorEngine\Templating\IsolatedRazorEngineService.cs" />
+    <Compile Include="RazorEngine\Templating\ITemplate.cs" />
+    <Compile Include="RazorEngine\Templating\ITemplateKey.cs" />
+    <Compile Include="RazorEngine\Templating\ITemplateManager.cs" />
+    <Compile Include="RazorEngine\Templating\ITemplateOfT.cs" />
+    <Compile Include="RazorEngine\Templating\ITemplateSource.cs" />
+    <Compile Include="RazorEngine\Templating\NameOnlyTemplateKey.cs" />
+    <Compile Include="RazorEngine\Templating\RazorEngineCore.cs" />
+    <Compile Include="RazorEngine\Templating\RazorEngineCoreWithCache.cs" />
+    <Compile Include="RazorEngine\Templating\RazorEngineService.cs" />
+    <Compile Include="RazorEngine\Templating\RazorEngineServiceExtensions.cs" />
+    <Compile Include="RazorEngine\Templating\RequireNamespacesAttribute.cs" />
+    <Compile Include="RazorEngine\Templating\ResolveType.cs" />
+    <Compile Include="RazorEngine\Templating\TemplateBase.cs" />
+    <Compile Include="RazorEngine\Templating\TemplateBaseOfT.cs" />
+    <Compile Include="RazorEngine\Templating\TemplateCompilationException.cs" />
+    <Compile Include="RazorEngine\Templating\TemplateLoadingException.cs" />
+    <Compile Include="RazorEngine\Templating\TemplateParsingException.cs" />
+    <Compile Include="RazorEngine\Templating\TemplateSource.cs" />
+    <Compile Include="RazorEngine\Templating\TemplateWriter.cs" />
+    <Compile Include="RazorEngine\Templating\TypeLoader.cs" />
+    <Compile Include="RazorEngine\Templating\WrapperTemplateManager.cs" />
+    <Compile Include="RazorEngine\Text\HtmlEncodedString.cs" />
+    <Compile Include="RazorEngine\Text\HtmlEncodedStringFactory.cs" />
+    <Compile Include="RazorEngine\Text\IEncodedString.cs" />
+    <Compile Include="RazorEngine\Text\IEncodedStringFactory.cs" />
+    <Compile Include="RazorEngine\Text\RawString.cs" />
+    <Compile Include="RazorEngine\Text\RawStringFactory.cs" />
+    <Compile Include="Results\ChallengeResults.cs" />
+    <Compile Include="TemporaryOverride.cs" />
+    <Compile Include="Unity\CachedLifetimeManager.cs" />
+    <Compile Include="Unity\Container.cs" />
+    <Compile Include="Unity\ContainerManager.cs" />
+    <Compile Include="Unity\DefaultCacheManager.cs" />
+    <Compile Include="Unity\DictionaryStorage.cs" />
+    <Compile Include="Unity\HierarchicalLifetimeBaseExtension.cs" />
+    <Compile Include="Unity\HierarchicalLifetimeBaseStrategy.cs" />
+    <Compile Include="Unity\ICacheManager.cs" />
+    <Compile Include="Unity\IContainerProvider.cs" />
+    <Compile Include="Unity\IHierarchicalLifetimeManagerBase.cs" />
+    <Compile Include="Unity\IKeyProvider.cs" />
+    <Compile Include="Unity\IStorage.cs" />
+    <Compile Include="Unity\SessionLifetimeManager.cs" />
+    <Compile Include="Unity\SessionStorage.cs" />
+    <Compile Include="Validation\BodyModelValidation.cs" />
+    <Compile Include="Validation\ValidationResourceProvider.cs" />
+    <Compile Include="Web\ConfigurableRequireHttpsAttribute.cs" />
+    <Compile Include="Web\DependencyContainer.cs" />
+    <Compile Include="Web\HttpRequestExecutor.cs" />
+    <Compile Include="Web\IgnoreAsset404sModule.cs" />
+    <Compile Include="Web\IPAddressRangeFilter.cs" />
+    <Compile Include="Web\Mvc\AssemblyResourcePathDefinition.cs" />
+    <Compile Include="Web\Mvc\AssemblyResourcePathProvider.cs" />
+    <Compile Include="Web\Mvc\AssemblyResourceVirtualDirectory.cs" />
+    <Compile Include="Web\Mvc\AssemblyResourceVirtualFile.cs" />
+    <Compile Include="Web\Mvc\CollectionPreservingModelBinder.cs" />
+    <Compile Include="Web\Mvc\ContextConditionViewEngine.cs" />
+    <Compile Include="Web\Mvc\ContextualMasterNameViewEngine.cs" />
+    <Compile Include="Web\Mvc\ContextualViewNameViewEngine.cs" />
+    <Compile Include="Web\Mvc\CustomizableJsonResult.cs" />
+    <Compile Include="Web\Mvc\CustomKeyedViewLocationCache.cs" />
+    <Compile Include="Web\Mvc\DateAndTimeModelBinder.cs" />
+    <Compile Include="Web\Mvc\DateTimeOffsetModelBinder.cs" />
+    <Compile Include="Web\Mvc\DefaultDictionaryModelBinder.cs" />
+    <Compile Include="Web\Mvc\DependencyContainer.cs" />
+    <Compile Include="Web\Mvc\DependencyScope.cs" />
+    <Compile Include="Web\Mvc\IContainerResolvedViewModel.cs" />
+    <Compile Include="Web\Mvc\InheritanceAwareModelBinderProvider.cs" />
+    <Compile Include="Web\Mvc\InvalidPostDataAttribute.cs" />
+    <Compile Include="Web\Mvc\LocationFormatViewEngine.cs" />
+    <Compile Include="Web\Mvc\TimeToTimeSpanModelBinder.cs" />
+    <Compile Include="Web\Mvc\TypeHelpers.cs" />
+    <Compile Include="Web\Mvc\UnityControllerFactory.cs" />
+    <Compile Include="Web\NHibernateSessionModule.cs" />
+    <Compile Include="Web\NHSessionAttribute.cs" />
+    <Compile Include="Web\NHTransactionAttribute.cs" />
+    <Compile Include="Web\OrderingNotAvailableException.cs" />
+    <Compile Include="Web\RequestContext.cs" />
+    <Compile Include="Web\SessionContext.cs" />
+    <Compile Include="Web\UnsupportedBrowserException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EmailTemplates\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
