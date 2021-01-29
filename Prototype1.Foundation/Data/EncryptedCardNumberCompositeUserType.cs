@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.Common;
 using NHibernate;
 using NHibernate.Engine;
 using NHibernate.Type;
@@ -44,7 +45,7 @@ namespace Prototype1.Foundation.Data
             return x.GetHashCode();
         }
 
-        public object NullSafeGet(IDataReader dr, string[] names, ISessionImplementor session, object owner)
+        public object NullSafeGet(DbDataReader dr, string[] names, ISessionImplementor session, object owner)
         {
             if (dr == null) return null;
             var numberColumn = names[0];
@@ -63,7 +64,7 @@ namespace Prototype1.Foundation.Data
             };
         }
 
-        public void NullSafeSet(IDbCommand cmd, object value, int index, bool[] settable, ISessionImplementor session)
+        public void NullSafeSet(DbCommand cmd, object value, int index, bool[] settable, ISessionImplementor session)
         {
             if (value == null)
                 return;

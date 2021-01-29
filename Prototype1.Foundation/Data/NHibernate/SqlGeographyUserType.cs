@@ -7,6 +7,8 @@ using System.Data.SqlTypes;
 using NHibernate.UserTypes;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using NHibernate.Engine;
+using System.Data.Common;
 
 namespace Prototype1.Foundation.Data.NHibernate
 {
@@ -31,9 +33,9 @@ namespace Prototype1.Foundation.Data.NHibernate
             return x.GetHashCode();
         }
 
-        public object NullSafeGet(IDataReader rs, string[] names, object owner)
+        public object NullSafeGet(DbDataReader rs, string[] names, ISessionImplementor session, object owner)
         {
-            object prop1 = NHibernateUtil.String.NullSafeGet(rs, names[0]);
+            object prop1 = NHibernateUtil.String.NullSafeGet(rs, names[0],session,owner);
             if (prop1 == null)
                 return null;
 
@@ -41,7 +43,7 @@ namespace Prototype1.Foundation.Data.NHibernate
             return geo;
         }
 
-        public void NullSafeSet(IDbCommand cmd, object value, int index)
+        public void NullSafeSet(DbCommand cmd, object value, int index, ISessionImplementor session)
         {
 	        object val = DBNull.Value;
             var geography = value as SqlGeography;

@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using System.Web;
 using NHibernate.Event;
 using Prototype1.Foundation.Providers;
 
@@ -15,6 +17,13 @@ namespace Prototype1.Foundation.Data.Listener
             RemoveFromCache((AccountBase) e.Entity);
         }
 
+        public virtual Task OnPostUpdateAsync(PostUpdateEvent e, CancellationToken cancellationToken) {
+            if (!(e.Entity is AccountBase)) return Task.CompletedTask;
+
+            RemoveFromCache((AccountBase)e.Entity);
+            return Task.CompletedTask;
+        }
+
         public virtual void OnPostInsert(PostInsertEvent e)
         {
             if (!(e.Entity is AccountBase)) return;
@@ -22,11 +31,25 @@ namespace Prototype1.Foundation.Data.Listener
             RemoveFromCache((AccountBase) e.Entity);
         }
 
+        public virtual Task OnPostInsertAsync(PostInsertEvent e, CancellationToken cancellationToken) {
+            if (!(e.Entity is AccountBase)) return Task.CompletedTask;
+
+            RemoveFromCache((AccountBase)e.Entity);
+            return Task.CompletedTask;
+        }
+
         public virtual void OnPostDelete(PostDeleteEvent e)
         {
             if (!(e.Entity is AccountBase)) return;
 
             RemoveFromCache((AccountBase) e.Entity);
+        }
+
+        public virtual Task OnPostDeleteAsync(PostDeleteEvent e, CancellationToken cancellationToken) {
+            if (!(e.Entity is AccountBase)) return Task.CompletedTask;
+
+            RemoveFromCache((AccountBase)e.Entity);
+            return Task.CompletedTask;
         }
 
         public static void RemoveFromCache<TUser>(TUser user)

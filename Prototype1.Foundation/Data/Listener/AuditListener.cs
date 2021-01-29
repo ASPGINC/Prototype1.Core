@@ -7,6 +7,8 @@ using NHibernate.Event;
 using Microsoft.Practices.Unity;
 using Prototype1.Foundation.Logging;
 using Prototype1.Foundation.Unity;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Prototype1.Foundation.Data.Listener
 {
@@ -30,6 +32,16 @@ namespace Prototype1.Foundation.Data.Listener
                 SaveEntries(factory.CreateEntries(e), e);
         }
 
+        public virtual Task OnPostUpdateAsync(PostUpdateEvent e, CancellationToken cancellationToken) {
+            if (e.Entity is AuditLogEntry)
+                return Task.CompletedTask;
+
+            var factory = GetFactory(e.Entity.GetType());
+            if (factory != null)
+                SaveEntries(factory.CreateEntries(e), e);
+            return Task.CompletedTask;
+        }
+
         public virtual void OnPostInsert(PostInsertEvent e)
         {
             if (e.Entity is AuditLogEntry)
@@ -38,6 +50,16 @@ namespace Prototype1.Foundation.Data.Listener
             var factory = GetFactory(e.Entity.GetType());
             if (factory != null)
                 SaveEntries(factory.CreateEntries(e), e);
+        }
+
+        public virtual Task OnPostInsertAsync(PostInsertEvent e, CancellationToken cancellationToken) {
+            if (e.Entity is AuditLogEntry)
+                return Task.CompletedTask;
+
+            var factory = GetFactory(e.Entity.GetType());
+            if (factory != null)
+                SaveEntries(factory.CreateEntries(e), e);
+            return Task.CompletedTask;
         }
 
         public virtual void OnPostDelete(PostDeleteEvent e)
@@ -50,6 +72,16 @@ namespace Prototype1.Foundation.Data.Listener
                 SaveEntries(factory.CreateEntries(e), e);
         }
 
+        public virtual Task OnPostDeleteAsync(PostDeleteEvent e, CancellationToken cancellationToken) {
+            if (e.Entity is AuditLogEntry)
+                return Task.CompletedTask;
+
+            var factory = GetFactory(e.Entity.GetType());
+            if (factory != null)
+                SaveEntries(factory.CreateEntries(e), e);
+            return Task.CompletedTask;
+        }
+
         public void OnPostUpdateCollection(PostCollectionUpdateEvent e)
         {
             var entity = e.AffectedOwnerOrNull;
@@ -59,6 +91,17 @@ namespace Prototype1.Foundation.Data.Listener
             var factory = GetFactory(entity.GetType());
             if (factory != null)
                 SaveEntries(factory.CreateEntries(e).ToList(), e);
+        }
+
+        public virtual Task OnPostUpdateCollectionAsync(PostCollectionUpdateEvent e, CancellationToken cancellationToken) {
+            var entity = e.AffectedOwnerOrNull;
+            if (entity == null || entity is AuditLogEntry)
+                return Task.CompletedTask;
+
+            var factory = GetFactory(entity.GetType());
+            if (factory != null)
+                SaveEntries(factory.CreateEntries(e).ToList(), e);
+            return Task.CompletedTask;
         }
 
         private IAuditLogEntryFactory GetFactory(Type entityType)

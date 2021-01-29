@@ -6,6 +6,8 @@ using NHibernate.UserTypes;
 using NHibernate.SqlTypes;
 using NHibernate;
 using System.ComponentModel;
+using System.Data.Common;
+using NHibernate.Engine;
 
 namespace Prototype1.Foundation.Data
 {
@@ -41,11 +43,11 @@ namespace Prototype1.Foundation.Data
             get { return true; }
         }
 
-        public object NullSafeGet(System.Data.IDataReader rs, string[] names, object owner)
+        public object NullSafeGet(DbDataReader rs, string[] names, ISessionImplementor session, object owner)
         {
-            var val = (string) NHibernateUtil.String.NullSafeGet(rs, names[0]);
+            var val = (string) NHibernateUtil.String.NullSafeGet(rs, names[0], session, owner);
 
-            var valTypeString = (string) NHibernateUtil.String.NullSafeGet(rs, names[1]);
+            var valTypeString = (string) NHibernateUtil.String.NullSafeGet(rs, names[1],session,owner);
 
             if (val == null || valTypeString == null)
                 return null;
@@ -65,13 +67,13 @@ namespace Prototype1.Foundation.Data
             return converter;
         }
 
-        public void NullSafeSet(System.Data.IDbCommand cmd, object value, int index)
+        public void NullSafeSet(DbCommand cmd, object value, int index, ISessionImplementor session)
         {
             var val = GetConverter(value.GetType().AssemblyQualifiedName).ConvertToInvariantString(value);
             var valType = value.GetType().AssemblyQualifiedName;
 
-            NHibernateUtil.String.NullSafeSet(cmd, val, index);
-            NHibernateUtil.String.NullSafeSet(cmd, valType, index + 1);
+            NHibernateUtil.String.NullSafeSet(cmd, val, index, session);
+            NHibernateUtil.String.NullSafeSet(cmd, valType, index + 1, session);
         }
 
         public object Replace(object original, object target, object owner)

@@ -7,7 +7,7 @@ namespace FluentNHibernate.Cfg.Db
     {
         protected OracleClientConfiguration()
         {
-            Driver<OracleClientDriver>();
+            Driver<OracleDataClientDriver>();
         }
 
 
