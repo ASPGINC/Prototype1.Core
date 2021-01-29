@@ -17,7 +17,7 @@ namespace Prototype1.Migration
     {
         private static readonly IAnnouncer Announcer = new NullAnnouncer();
 
-        private const int DefaultTimeout = 480;
+        private static TimeSpan DefaultTimeout = TimeSpan.FromSeconds(480);
 
         public static void MigrateToLatest(string connectionString, string migrationAssemblyName)
         {
@@ -28,15 +28,15 @@ namespace Prototype1.Migration
             var options = new ProcessorOptions { PreviewOnly = false, Timeout = DefaultTimeout };
             var factory = new SqlServer2008ProcessorFactory();
             var processor = factory.Create(connectionString, Announcer, options);
-            var runner = new MigrationRunner(assembly, migrationContext, processor);
+            //var runner = new MigrationRunner(assembly, migrationContext, processor);
 
-            foreach (var a in runner.MigrationAssemblies.Assemblies)
-                RunScriptGroup(ScriptRunningGroup.PreMigrationScript, a, processor);
+            //foreach (var a in runner.MigrationAssemblies.Assemblies)
+            //    RunScriptGroup(ScriptRunningGroup.PreMigrationScript, a, processor);
 
-            runner.MigrateUp(true);
+            //runner.MigrateUp(true);
 
-            foreach (var a in runner.MigrationAssemblies.Assemblies)
-                RunScriptGroup(ScriptRunningGroup.PostMigrationScript, a, processor);
+            //foreach (var a in runner.MigrationAssemblies.Assemblies)
+            //    RunScriptGroup(ScriptRunningGroup.PostMigrationScript, a, processor);
         }
 
         private enum ScriptRunningGroup
