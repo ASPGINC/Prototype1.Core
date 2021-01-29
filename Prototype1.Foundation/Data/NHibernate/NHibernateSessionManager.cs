@@ -68,7 +68,7 @@ namespace Prototype1.Foundation.Data.NHibernate
                 session = _sessionFactory.OpenSession();
                 session.EnableFilter("PermanentRecordFilter").SetParameter("deleted", false);
                 session.FlushMode = IsInWebContext()
-                                ? FlushMode.Never
+                                ? FlushMode.Manual
                                 : FlushMode.Commit;
                 ThreadSession = session;
             }

@@ -120,7 +120,6 @@ namespace Prototype1.Foundation.Data.Listener
             {
                 if (entries == null || !entries.Any())
                     return;
-
                 var session = e.Session.GetSession(EntityMode.Poco);
                 entries.Apply(x => session.Save(x));
 

@@ -19,7 +19,6 @@ namespace Prototype1.Foundation
             try
             {
                 var template = GetTemplate(templatename, baseUrl);
-
                 //parsed = WebUtility.HtmlDecode(Engine.Razor.RunCompile(GetTemplate(templatename, baseUrl), null, model));
                 parsed = WebUtility.HtmlDecode(Razor.Parse(template, model, string.Concat(templatename, "_", template.MD5Hash()))); 
             }

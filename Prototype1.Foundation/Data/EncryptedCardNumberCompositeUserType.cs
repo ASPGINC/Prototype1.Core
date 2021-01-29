@@ -29,7 +29,7 @@ namespace Prototype1.Foundation.Data
                 encryptedCreditCard.DecryptionKeyID = (int)value;
         }
 
-        public bool Equals(object x, object y)
+        public new bool Equals(object x, object y)
         {
             if (ReferenceEquals(x, y)) return true;
             if (x == null || y == null) return false;

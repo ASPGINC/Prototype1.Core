@@ -28,7 +28,7 @@ namespace Prototype1.Foundation.Data
             return DeepCopy(value);
         }
 
-        public bool Equals(object x, object y)
+        public new bool Equals(object x, object y)
         {
             return x.Equals(y);
         }
