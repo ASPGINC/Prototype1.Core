@@ -89,7 +89,7 @@ namespace FluentNHibernate
 
         private static Assembly FindTheCallingAssembly()
         {
-            StackTrace trace = new StackTrace(Thread.CurrentThread, false);
+            StackTrace trace = new StackTrace(false);
 
             Assembly thisAssembly = Assembly.GetExecutingAssembly();
             Assembly callingAssembly = null;
