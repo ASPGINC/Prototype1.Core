@@ -19,7 +19,7 @@ namespace Prototype1.Foundation.Validation
         public BodyModelValidator(IDependencyResolver dependencyResolver)
         {
             _dependencyResolver = dependencyResolver;
-            ValidatorOptions.ResourceProviderType = typeof(ValidationResourceProvider);
+            //ValidatorOptions.ResourceProviderType = typeof(ValidationResourceProvider);
         }
 
         public bool Validate(object model, Type type, ModelMetadataProvider metadataProvider, HttpActionContext actionContext,
@@ -39,8 +39,8 @@ namespace Prototype1.Foundation.Validation
                 _typesWithoutValidators.Add(type);
                 return true;
             }
-
-            var result = validator.Validate(model);
+            ValidationContext<object> context = new ValidationContext<object>(model); 
+            var result = validator.Validate(context);
             if (result.IsValid)
                 return true;
 

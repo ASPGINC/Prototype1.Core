@@ -897,7 +897,7 @@ namespace Prototype1.Foundation
             this IRuleBuilderOptions<T, TProperty> rule,
             Func<T, string> messageBuilder)
         {
-            return rule.Configure(cfg => { cfg.MessageBuilder = context => messageBuilder((T) context.Instance); });
+            return rule.Configure(cfg => { cfg.MessageBuilder = context => messageBuilder((T) context.InstanceToValidate); });
         }
 
         #endregion
